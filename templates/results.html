@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты обработки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pixelizer';
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('/static/background.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #1c1c20;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #6a44a9;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .button-group {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-btn {
+            background: #6a44a9;
+            color: white;
+        }
+
+        .download-btn {
+            background: #2d1f9a;
+            color: white;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="logo">
+        <h1>Результаты для {{ filename }}</h1>
+
+        
+        <img src="/download/{{ filename }}" alt="Загруженное изображение" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+        
+        <h2>Обнаруженные объекты:</h2>
+        <ul>
+            {% for obj in objects %}
+            <li>{{ obj }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Распознанный текст:</h2>
+        <p>{{ text }}</p>
+
+        <div class="button-group">
+            <a href="/" class="back-btn">Назад</a>
+            <a href="/download/{{ filename }}" class="download-btn">Скачать результаты</a>
+        </div>
+        <a href="https://t.me/vista_dpr_bot">Поддержка</a>
+    </div>
+</body>
+</html>

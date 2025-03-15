@@ -1,0 +1,13 @@
+flask
+werkzeug
+pillow
+ultralytics
+easyocr
+pyaspeller
+opencv-python-headless
+piexif
+transformers
+sqlalchemy
+python-dotenv
+opencv-python
+torch

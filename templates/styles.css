@@ -1,0 +1,144 @@
+/* common.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #463169 url('your-background-image.jpg') center/cover fixed;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(70, 49, 105, 0.9);
+    z-index: -1;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+h1, h2 {
+    color: #241c82;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 2px solid #463169;
+    padding-bottom: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+form {
+    margin: 2rem 0;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #241c82;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+input:focus {
+    border-color: #463169;
+    outline: none;
+    box-shadow: 0 0 10px rgba(70, 49, 105, 0.3);
+}
+
+button, a {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+button[type="submit"],
+.custom-upload,
+.download-btn {
+    background: #241c82;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+button:hover, .custom-upload:hover {
+    background: #463169;
+    transform: translateY(-2px);
+}
+
+.result-item, li, p {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 1px solid rgba(70, 49, 105, 0.1);
+}
+
+.result-item a {
+    color: #241c82;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.back-btn {
+    background: #463169;
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
