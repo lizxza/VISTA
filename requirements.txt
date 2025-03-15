@@ -11,3 +11,4 @@ sqlalchemy
 python-dotenv
 opencv-python
 torch
+sentencepiece
